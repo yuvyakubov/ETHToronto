@@ -1,0 +1,19 @@
+{
+  "noImplicitAdditionalProperties": true,
+  "controllerPathGlobs": [
+    "./src/controllers/**/*Controller.ts",
+    "./src/**/**/*Controller.ts"
+  ],
+  "spec": {
+    "basePath": "/",
+    "entryFile": "./src/server.ts",
+    "specVersion": 3,
+    "outputDirectory": "./src"
+  },
+  "routes": {
+    "basePath": "/",
+    "entryFile": "./src/server.ts",
+    "routesDir": "./src/routes",
+    "middleware": "express"
+  }
+}
