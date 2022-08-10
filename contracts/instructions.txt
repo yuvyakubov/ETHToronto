@@ -1,0 +1,6 @@
+verify:
+npx hardhat verify --network rinkeby 0x779A9E4352a28CE72c3DaCcED72c24A18Dc3861d 'SoulBoundNFT', 'SNT','ipfs://QmaAf8hEVs175ePpgRDXk6mSpaTr7VJAVQKgS6svT4hNKb/metadata.json'
+
+
+launch:
+npx hardhat deploy --network rinkeby
