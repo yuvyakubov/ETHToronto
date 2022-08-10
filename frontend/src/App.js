@@ -1,6 +1,6 @@
 import OtherLayout from "./layouts/OtherLayout.js";
 import MobileLayout from "./layouts/MobileLayout.js";
-import Beneficiary from "./components/Beneficiary.js";
+import StepScreen from "./screens/StepScreen.js";
 
 function App() {
   return (
@@ -9,7 +9,7 @@ function App() {
       style={{ backgroundColor: "#5E17EB", height: "100vh" }}
     >
       <MobileLayout>
-        <Beneficiary />
+        <StepScreen />
       </MobileLayout>
       <OtherLayout>Please use your phone to use the app</OtherLayout>
     </div>

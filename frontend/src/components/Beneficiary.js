@@ -1,3 +1,4 @@
+import React, { useEffect } from 'react'
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
@@ -5,125 +6,67 @@ import { Typography } from "@mui/material/";
 import TextField from "@mui/material/TextField";
 import Slider from "@mui/material/Slider";
 
-const marks = [
-  {
-    value: 0,
-    label: "0%",
-  },
-  {
-    value: 20,
-    label: "20%",
-  },
-  {
-    value: 100,
-    label: "100%",
-  },
-];
-
-function valuetext(value) {
-  return `${value}%`;
-}
-
-const Beneficiary = () => {
+const Beneficiary = ({totalBeneficiaries, beneficiary, setBeneficiary}) => {
   return (
-    <Box sx={{ width: 1, height: 1 }} style={{ backgroundColor: "white" }}>
+    <Box px={5} style={styles.benificiaryContainer} >
       <Box
         sx={{
           justifyContent: "center",
           alignItems: "center",
         }}
       >
-        <Box sx={{ m: 3 }}>
-          <Typography variant="h5" gutterBottom component="div">
-            BENEFICIARY
-          </Typography>
-        </Box>
-
-        <Box style={styles.homeSubTitle}>
+        <Box py={3}>
           <TextField
             fullWidth
             id="standard-basic"
             label="BENEFICIARY NAME"
             variant="outlined"
+            onChange={(e) => {setBeneficiary({fullName: e.target.value, ...beneficiary})}}
           />
         </Box>
-        <Box>
-          <TextField fullWidth label="RELATIONSHIP" variant="outlined" />
+        <Box pb={3}>
+          <TextField fullWidth label="RELATIONSHIP" variant="outlined" onChange={(e) => {setBeneficiary({relationship: e.target.value, ...beneficiary})}} />
         </Box>
-        <Typography variant="h7" gutterBottom component="div">
+        <Typography variant="h7" gutterBottom component="div" style={styles.subTitle}>
           PERCENTAGE
         </Typography>
         <Box>
           <Slider
             aria-label="Custom marks"
-            defaultValue={25}
-            getAriaValueText={valuetext}
+            value={100/totalBeneficiaries}
             valueLabelDisplay="auto"
+            style={styles.percentageSlider}
           />
-        </Box>
-        <Box>
-          <Button variant="contained" style={styles.saveButton}>
-            ADD MORE +
-          </Button>
         </Box>
       </Box>
     </Box>
   );
 };
 
-const styles = {
-  homeTitle: {
-    color: "white",
-    fontSize: "2em",
-    fontWeight: "bold",
-  },
-  homeSubTitle: {
-    margin: "15px",
-    color: "white",
-    margin: "auto",
-    fontSize: "0.8em",
-  },
-  walletButton: {
-    backgroundColor: "white",
-    color: "#5E17EB",
-  },
+export const Test = () => {
+  return (
+    <div>
+      totalBeneficiaries
+    </div>
+  );
 };
 
-export default Beneficiary;
-
-{
-  /* <Box style={styles.homeSubTitle}>
-          <TextField
-            fullWidth
-            id="standard-basic"
-            label="BENEFICIARY NAME"
-            variant="standard"
-          />
-        </Box>
-        <Box>
-          <TextField
-            id="outlined-basic"
-            label="RELATIONSHIP"
-            variant="outlined"
-          />
-        </Box>
-
-        <Typography variant="h7" gutterBottom component="div">
-          PERCENTAGE
-        </Typography>
-
-        <Box>
-          <Slider
-            aria-label="Custom marks"
-            defaultValue={25}
-            getAriaValueText={valuetext}
-            valueLabelDisplay="auto"
-            marks={marks}
-          />
-        </Box>
-        <Box>
-          <Button variant="contained" style={styles.saveButton}>
-            ADD MORE +
-          </Button>
-        </Box> */
+const styles = {
+  addMoreButton: {
+    width: '100%',
+    backgroundColor: '#5E17EB',
+    fontWeight: 'bold'
+  },
+  percentageSlider: {
+    color:'#5E17EB'
+  },
+  header: {
+    color: '#5E17EB',
+    fontWeight: 'bold'
+  },
+  subTitle: {
+    color: '#5E17EB',
+  }
 }
+
+export default Beneficiary;
