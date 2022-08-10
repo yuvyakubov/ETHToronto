@@ -9,12 +9,18 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   } = hre;
   const { deployer } = await getNamedAccounts();
 
-  await deploy('SoulBoundNFT', {
+  // await deploy('SoulBoundNFT', {
+  //   from: deployer,
+  //   args: ['SoulBoundNFT', 'SNT','ipfs://QmaAf8hEVs175ePpgRDXk6mSpaTr7VJAVQKgS6svT4hNKb/metadata.json'],
+  //   log: true,
+  // });
+  await deploy('Report', {
     from: deployer,
-    args: ['SoulBoundNFT', 'SNT','ipfs://QmaAf8hEVs175ePpgRDXk6mSpaTr7VJAVQKgS6svT4hNKb/metadata.json'],
+    args: [],
     log: true,
   });
 };
 
 export default func;
-func.tags = ['SoulBoundNFT'];
+//func.tags = ['SoulBoundNFT'];
+func.tags=["Report"]

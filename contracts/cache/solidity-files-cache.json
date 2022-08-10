@@ -393,6 +393,50 @@
       "artifacts": [
         "Context"
       ]
+    },
+    "C:\\Users\\dawgd\\Desktop\\customers\\ETH toronto\\ETHToronto\\contracts\\contracts\\Report.sol": {
+      "lastModificationDate": 1660097595256,
+      "contentHash": "f967637d62a484b2e9e33923b8256791",
+      "sourceName": "contracts/Report.sol",
+      "solcConfig": {
+        "version": "0.8.9",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/access/Ownable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.9"
+      ],
+      "artifacts": [
+        "Report"
+      ]
     }
   }
 }
