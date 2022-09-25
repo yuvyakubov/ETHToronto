@@ -9,14 +9,25 @@ import Beneficiary from './Beneficiary.js'
 import Test from './Beneficiary.js'
 
 const BeneficiaryList = (props) => {
-  const [lastBeneficiary, setLastBeneficiary] = useState({fullName: null, relationship: null, percentage: 100})
+  // const [lastBeneficiary, setLastBeneficiary] = useState({fullName: null, relationship: null, percentage: null})
 
   const addBeneficiary = () => {
-    props.setBeneficiaries([...props.beneficiaries, {fullName: null, relationship: null, percentage: 100/props.beneficiaries.length}])
+    props.setBeneficiaries([...props.beneficiaries, { fullName: null, relationship: null, percentage: 100 }])
+    console.log(props.beneficiaries.length + 1)
+    console.log(props.setBeneficiaries)
   }
 
 
+
+  const removeBeneficiary = (position) => {
+    console.log(position);
+    console.log(props.beneficiaries);
+    props.setBeneficiaries(props.beneficiaries.splice(position, 1));
+  }
+
+  console.log(props.setBeneficiaries)
   console.log(props.beneficiaries)
+  console.log(props.beneficiaries.length + 1)
   return (
     <Box px={5} style={styles.benificiaryContainer} >
       <Box
@@ -31,13 +42,16 @@ const BeneficiaryList = (props) => {
           </Typography>
         </Box>
         <Box>
-        {
-          props.beneficiaries.map((beneficiary) => {
-            return (
-              <Beneficiary totalBeneficiaries={props.beneficiaries.length} beneficiary={beneficiary} setBeneficiary={setLastBeneficiary}/>
-            );
-          })
-        }
+          {
+            props.beneficiaries.map((beneficiary, index) => {
+              return (
+                <Beneficiary
+                  totalBeneficiaries={props.beneficiaries.length}
+                  beneficiary={beneficiary}
+                  onRemoveBeneficiary={() => removeBeneficiary(index)} />
+              );
+            })
+          }
 
 
 
@@ -64,7 +78,7 @@ const styles = {
     fontWeight: 'bold'
   },
   percentageSlider: {
-    color:'#5E17EB'
+    color: '#5E17EB'
   },
   header: {
     color: '#5E17EB',
